@@ -1,0 +1,24 @@
+---
+garden:
+  desc: "There's a big gate opened in front of you"
+  north: "great_hall"
+
+great_hall:
+  desc: "The main room of the palace, probably it was magnificent a long time ago"
+  west: "dining_room"
+  north: "hallway"
+  event: "strange_noise"
+
+dining_room:
+  desc: "A table with a lot of chairs is in the center of the room"
+  event: "running_rat"
+
+hallway:
+  desc: "There are paintings on the walls"
+  east: "kings_chamber"
+  event: "painting"
+
+kings_chamber:
+  desc: "With a big bed, a red carpet and a large window on the left"
+  event: "evil_wizard"
+  final: true

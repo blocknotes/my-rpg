@@ -1,0 +1,52 @@
+---
+entering: |
+  In a dark cold night
+  with a full moon light
+  you arrive at the old castle
+  that you heard should be infested...
+
+evil_wizard:
+  actions:
+    j:
+      desc: "jump through the window"
+      effect: "the wizard points the wand at you and all becomes dark..."
+      ending: "You lose!"
+      new_state: "done"
+      if:
+        wizard_gone:
+          effect: "you break the window and jump outside"
+          ending: "You succeed to escape! But inside your mind the evil wizard is still laughing at you..."
+          new_state: "done"
+
+    p:
+      desc: "pull the carpet"
+      effect: "the wizard is down!"
+      new_state: "wizard_gone"
+
+    r:
+      desc: "run near the wizard and grab the wand"
+      effect: "the wizard is faster than you, he points the wand at you and all becomes dark..."
+      ending: "You lose!"
+      new_state: "done"
+      if:
+        wizard_gone:
+          effect: "you grab the wand and neutralize the wizard"
+          ending: "You win! The evil wizard will not harm anyone else"
+          new_state: "done"
+
+  idle: "The wizard is staring at you with evil eyes, it's probably better to act fast!"
+  intro: |-
+    There's a wizard near the desk, when you arrive he says "Oh, we have guests today..."
+    he waves his wand and the door disappear!
+
+running_rat:
+  intro: "As soon as you enter a rat run away. Was... he smiling at you?!"
+
+strange_noise:
+  intro: "You hear a squeaky sound from your left..."
+
+painting:
+  actions:
+    l:
+      desc: "Take a closer look to the painting of the king"
+      effect: "The drawing style is very realistic. He looks... almost alive!"
