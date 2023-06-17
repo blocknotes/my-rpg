@@ -29,7 +29,7 @@ class Dungeon
   # Show extra actions help
   def extra_help_msg
     actions = @current_room.event&.actions || []
-    msg = actions.map { |key, action| "#{key} - #{action["desc"]}" }.join("\n")
+    msg = actions.map { |key, action| "#{key} - #{action['desc']}" }.join("\n")
     "\n#{msg}\n" unless msg.empty?
   end
 
@@ -40,9 +40,9 @@ class Dungeon
       result[:msg] << "\n\n#{result[:ending]}" if result[:ending]
       result
     elsif DIRECTIONS.key?(command)
-      {msg: change_room(command)}
+      { msg: change_room(command) }
     elsif command == "l"
-      {msg: @current_room.describe}
+      { msg: @current_room.describe }
     end
   end
 

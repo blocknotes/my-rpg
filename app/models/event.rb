@@ -28,12 +28,12 @@ class Event
     return unless action
 
     msg = [
-      "You #{action["desc"]}",
+      "You #{action['desc']}",
       "...",
       apply_effect(action)
     ].join("\n")
 
-    {msg: msg, ending: @ending, done: state == "done"}
+    { msg: msg, ending: @ending, done: state == "done" }
   end
 
   private

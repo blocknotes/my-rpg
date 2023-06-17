@@ -43,11 +43,11 @@ class Game
   end
 
   def help_msg
-    {msg: "#{HELP}#{@dungeon.extra_help_msg}"}
+    { msg: "#{HELP}#{@dungeon.extra_help_msg}" }
   end
 
   def quit_msg
-    {msg: "\nThanks for playing!", done: true}
+    { msg: "\nThanks for playing!", done: true }
   end
 
   def translate(command)

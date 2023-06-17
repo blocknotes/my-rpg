@@ -10,7 +10,7 @@ RSpec.describe "Dungeon" do
   end
 
   describe "initialize" do
-    let(:rooms) { {"main_room" => {}} }
+    let(:rooms) { { "main_room" => {} } }
 
     it "set an empty ending" do
       expect(dungeon.ending).to be_empty
@@ -66,7 +66,7 @@ RSpec.describe "Dungeon" do
   describe "#entering" do
     subject(:entering) { dungeon.entering }
 
-    let(:rooms) { {"main_room" => {}} }
+    let(:rooms) { { "main_room" => {} } }
 
     it { is_expected.to start_with "You are in the main room" }
     it { is_expected.to include "There are no exits" }
@@ -75,7 +75,7 @@ RSpec.describe "Dungeon" do
   describe "#extra_help_msg" do
     subject(:extra_help_msg) { dungeon.extra_help_msg }
 
-    let(:rooms) { {"main_room" => {}} }
+    let(:rooms) { { "main_room" => {} } }
 
     it { is_expected.to be_nil }
   end
@@ -84,7 +84,7 @@ RSpec.describe "Dungeon" do
     subject(:handle_action) { dungeon.handle_action(command) }
 
     let(:command) { " " }
-    let(:rooms) { {"main_room" => {"desc" => "A nice place"}} }
+    let(:rooms) { { "main_room" => { "desc" => "A nice place" } } }
 
     it { is_expected.to be_nil }
 
@@ -101,9 +101,9 @@ RSpec.describe "Dungeon" do
     end
 
     context "with an event" do
-      let(:action) { {done: false, msg: "Some msg"} }
+      let(:action) { { done: false, msg: "Some msg" } }
       let(:room) { instance_double(Room) }
-      let(:event) { instance_double(Event, actions: {"k" => {}}, handle_action: action, state: "a state") }
+      let(:event) { instance_double(Event, actions: { "k" => {} }, handle_action: action, state: "a state") }
       let(:command) { "k" }
 
       before do
