@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require "pathname"
+require "readline"
 require "yaml"
+
+Dir[File.expand_path("**/*.rb", __dir__)].each { |f| require f }
 
 class Game
   HELP = <<~END_OF_HELP
@@ -32,6 +35,22 @@ class Game
     return quit_msg if cmd == "exit"
 
     @dungeon.handle_action(cmd)
+  end
+
+  class << self
+    def start
+      game = Game.new
+      puts game.begin
+      while (input = Readline.readline(Game::PROMPT, true))
+        result = game.process_input(input)
+        next unless result
+
+        puts result[:msg] if result[:msg]
+        break if result[:done]
+      end
+    rescue Interrupt
+      puts "\nBye bye!"
+    end
   end
 
   private

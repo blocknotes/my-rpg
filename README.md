@@ -10,7 +10,7 @@ bundle
 ```
 - Run the game:
 ```sh
-ruby main.rb
+bundle exec ruby -r ./app/game.rb -e 'Game.start'
 ```
 - Use the keys as input (h for help)
 
